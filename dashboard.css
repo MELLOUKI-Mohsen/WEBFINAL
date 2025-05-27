@@ -1,0 +1,227 @@
+/* Styles pour le tableau de bord */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.dashboard-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.dashboard-container h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #2196F3;
+    border-radius: 3px;
+}
+
+.dashboard-section {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-section h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-section h3 i {
+    margin-right: 10px;
+    color: #2196F3;
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card i {
+    font-size: 30px;
+    color: #2196F3;
+    margin-bottom: 10px;
+}
+
+.stat-card h4 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.stat-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+.project-list, .application-list {
+    margin-top: 20px;
+}
+
+.project-item, .application-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+}
+
+.project-item:hover, .application-item:hover {
+    background-color: #f9f9f9;
+}
+
+.project-item:last-child, .application-item:last-child {
+    border-bottom: none;
+}
+
+.project-info h4, .application-info h4 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.project-info p, .application-info p {
+    color: #666;
+    font-size: 14px;
+}
+
+.project-actions, .application-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn.primary {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+}
+
+.btn.primary:hover {
+    background-color: #0b7dda;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.btn.secondary {
+    background-color: white;
+    color: #2196F3;
+    border: 1px solid #2196F3;
+}
+
+.btn.secondary:hover {
+    background-color: rgba(33, 150, 243, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn.danger {
+    background-color: white;
+    color: #f44336;
+    border: 1px solid #f44336;
+}
+
+.btn.danger:hover {
+    background-color: rgba(244, 67, 54, 0.1);
+    transform: translateY(-2px);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+}
+
+.empty-state i {
+    font-size: 50px;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.empty-state p {
+    margin-bottom: 20px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-menu span {
+    color: #555;
+    font-weight: 500;
+}
+
+.user-menu a {
+    color: #2196F3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.user-menu a:hover {
+    color: #0b7dda;
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-item, .application-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .project-actions, .application-actions {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+}

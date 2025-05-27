@@ -2,13 +2,8 @@
 // Démarrer la session
 session_start();
 
-// Activer l'affichage des erreurs
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // Inclure le fichier de configuration
-require_once __DIR__ . '/config.php';
+require_once 'config.php';
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,8 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (empty($email)) {
         $errors[] = "L'email est requis.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "L'adresse email n'est pas valide.";
     }
     
     if (empty($password)) {
@@ -33,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Si aucune erreur, procéder à la connexion
     if (empty($errors)) {
         try {
-            // Récupérer l'utilisateur depuis la base de données
+            // Vérifier si l'utilisateur existe
             $stmt = $conn->prepare("SELECT id, name, email, password, account_type FROM users WHERE email = :email");
             $stmt->bindParam(':email', $email);
             $stmt->execute();
@@ -64,8 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         setcookie('remember_token', $token, $expiry, "/", "", false, true);
                     }
                     
-                    // Rediriger vers le tableau de bord
-                    header("Location: ../dashboard.php");
+                    // Retourner les données pour localStorage
+                    echo json_encode([
+                        'success' => true,
+                        'userId' => $user['id'],
+                        'userName' => $user['name'],
+                        'userType' => $user['account_type'],
+                        'redirect' => '../dashboard.html'
+                    ]);
                     exit();
                 } else {
                     $errors[] = "Mot de passe incorrect.";
@@ -78,17 +77,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     
-    // Stocker les erreurs dans la session
-    $_SESSION['login_errors'] = $errors;
-    
-    // Stocker l'email pour le réafficher dans le formulaire
-    $_SESSION['login_email'] = $email;
-    
-    // Rediriger vers la page de login
-    header("Location: ../login.php");
-    exit();
+    // S'il y a des erreurs, les retourner
+    if (!empty($errors)) {
+        echo json_encode([
+            'success' => false,
+            'errors' => $errors
+        ]);
+        exit();
+    }
 }
 ?>
-
-
 
