@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - FreelanceConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <style>
+        .error-messages {
+            background-color: #ffebee;
+            border: 1px solid #f44336;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .error-messages ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .error-messages li {
+            color: #d32f2f;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><a href="index.html">FreelanceConnect</a></h1>
+            </div>
+        </nav>
+    </header>
+
+    <section class="auth-container">
+        <div class="auth-form">
+            <h2>Créer un compte</h2>
+            
+            <div id="error-container" class="error-messages" style="display: none;">
+                <ul id="error-list"></ul>
+            </div>
+            
+            <div class="account-type-selector">
+                <button id="freelancer-btn" class="account-type active">Freelancer</button>
+                <button id="company-btn" class="account-type">Entreprise</button>
+            </div>
+            <form id="register-form" action="php/register_process.php" method="POST">
+                <input type="hidden" id="account-type" name="account_type" value="freelancer">
+                
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirmer le mot de passe</label>
+                    <input type="password" id="confirm-password" name="confirm_password" required>
+                </div>
+                
+                <!-- Champs spécifiques aux freelancers -->
+                <div id="freelancer-fields">
+                    <div class="form-group">
+                        <label for="skills">Compétences (séparées par des virgules)</label>
+                        <input type="text" id="skills" name="skills">
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Années d'expérience</label>
+                        <input type="number" id="experience" name="experience" min="0" value="0">
+                    </div>
+                </div>
+                
+                <!-- Champs spécifiques aux entreprises -->
+                <div id="company-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="company-name">Nom de l'entreprise</label>
+                        <input type="text" id="company-name" name="company_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Secteur d'activité</label>
+                        <input type="text" id="industry" name="industry">
+                    </div>
+                </div>
+                
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">J'accepte les <a href="#">conditions d'utilisation</a> et la <a href="#">politique de confidentialité</a></label>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn primary full-width">S'inscrire</button>
+                </div>
+                
+                <div class="form-links">
+                    <a href="login.html">Déjà inscrit? Se connecter</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2023 FreelanceConnect. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion des types de compte
+        document.getElementById('freelancer-btn').addEventListener('click', function() {
+            document.getElementById('account-type').value = 'freelancer';
+            document.getElementById('freelancer-fields').style.display = 'block';
+            document.getElementById('company-fields').style.display = 'none';
+            document.getElementById('freelancer-btn').classList.add('active');
+            document.getElementById('company-btn').classList.remove('active');
+        });
+        
+        document.getElementById('company-btn').addEventListener('click', function() {
+            document.getElementById('account-type').value = 'company';
+            document.getElementById('freelancer-fields').style.display = 'none';
+            document.getElementById('company-fields').style.display = 'block';
+            document.getElementById('company-btn').classList.add('active');
+            document.getElementById('freelancer-btn').classList.remove('active');
+        });
+        
+        // Afficher les erreurs s'il y en a
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error')) {
+                // Récupérer les erreurs depuis sessionStorage
+                const errors = JSON.parse(sessionStorage.getItem('register_errors') || '[]');
+                if (errors.length > 0) {
+                    const errorList = document.getElementById('error-list');
+                    errorList.innerHTML = '';
+                    errors.forEach(error => {
+                        const li = document.createElement('li');
+                        li.textContent = error;
+                        errorList.appendChild(li);
+                    });
+                    document.getElementById('error-container').style.display = 'block';
+                    // Vider les erreurs
+                    sessionStorage.removeItem('register_errors');
+                }
+                
+                // Récupérer les données du formulaire
+                const formData = JSON.parse(sessionStorage.getItem('form_data') || '{}');
+                for (const key in formData) {
+                    const input = document.querySelector(`[name="${key}"]`);
+                    if (input) {
+                        input.value = formData[key];
+                    }
+                }
+                // Vider les données du formulaire
+                sessionStorage.removeItem('form_data');
+                
+                // Afficher les champs appropriés selon le type de compte
+                if (formData.account_type === 'company') {
+                    document.getElementById('company-btn').click();
+                }
+            }
+        };
+    </script>
+</body>
+</html>
+

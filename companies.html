@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entreprises - FreelanceConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/companies.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>FreelanceConnect</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="freelancers.html">Freelancers</a></li>
+                <li><a href="companies.html" class="active">Entreprises</a></li>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn login">Connexion</a>
+                <a href="register.html" class="btn register">Inscription</a>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="companies-header">
+        <h1>Découvrez les entreprises</h1>
+        <div class="search-filter">
+            <div class="search-bar">
+                <input type="text" id="company-search" placeholder="Rechercher des entreprises...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filters">
+                <select id="industry-filter">
+                    <option value="">Tous les secteurs</option>
+                    <option value="tech">Technologie</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="finance">Finance</option>
+                    <option value="education">Éducation</option>
+                    <option value="health">Santé</option>
+                </select>
+                <select id="size-filter">
+                    <option value="">Toutes les tailles</option>
+                    <option value="small">Petite (1-10 employés)</option>
+                    <option value="medium">Moyenne (11-50 employés)</option>
+                    <option value="large">Grande (51+ employés)</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="companies-container">
+        <div class="company-card">
+            <div class="company-header">
+                <img src="img/company1.jpg" alt="Logo entreprise">
+                <div class="company-info">
+                    <h3>TechSolutions</h3>
+                    <p>Développement de logiciels</p>
+                </div>
+            </div>
+            <div class="company-description">
+                <p>Entreprise spécialisée dans le développement de solutions logicielles sur mesure pour les PME et les grandes entreprises.</p>
+            </div>
+            <div class="company-details">
+                <div class="detail"><i class="fas fa-map-marker-alt"></i> Paris, France</div>
+                <div class="detail"><i class="fas fa-users"></i> 25-50 employés</div>
+                <div class="detail"><i class="fas fa-briefcase"></i> 15 projets actifs</div>
+            </div>
+            <div class="company-projects">
+                <h4>Projets récents</h4>
+                <ul>
+                    <li>Développement d'un site e-commerce</li>
+                    <li>Application de gestion de projet</li>
+                    <li>Refonte de système CRM</li>
+                </ul>
+            </div>
+            <a href="company-profile.html?id=1" class="btn primary">Voir profil</a>
+        </div>
+
+        <div class="company-card">
+            <div class="company-header">
+                <img src="img/company2.jpg" alt="Logo entreprise">
+                <div class="company-info">
+                    <h3>MobileInnovate</h3>
+                    <p>Applications mobiles</p>
+                </div>
+            </div>
+            <div class="company-description">
+                <p>Agence spécialisée dans la conception et le développement d'applications mobiles pour iOS et Android.</p>
+            </div>
+            <div class="company-details">
+                <div class="detail"><i class="fas fa-map-marker-alt"></i> San Francisco, États-Unis</div>
+                <div class="detail"><i class="fas fa-users"></i> 10-20 employés</div>
+                <div class="detail"><i class="fas fa-briefcase"></i> 10 projets actifs</div>
+            </div>
+            <div class="company-projects">
+                <h4>Projets récents</h4>
+                <ul>
+                    <li>Application de suivi de fitness</li>
+                    <li>Application de paiement en ligne</li>
+                    <li>Application de messagerie instantanée</li>
+                </ul>
+            </div>
+            <a href="company-profile.html?id=2" class="btn primary">Voir profil</a>
+        </div>
+
+        <!-- Ajouter plus de cartes d'entreprises ici -->
+    </section>
+
+    <div class="pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#"><i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FreelanceConnect</h3>
+                <p>La plateforme qui connecte les talents aux opportunités</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="freelancers.html">Freelancers</a></li>
+                    <li><a href="companies.html">Entreprises</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contactez-nous</h3>
+                <p>Email: youssef.hellal9@gmail.com </p>
+                <p>Téléphone: +216 25944717</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FreelanceConnect. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

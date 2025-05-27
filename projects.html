@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - FreelanceConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>FreelanceConnect</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projects.html" class="active">Projets</a></li>
+                <li><a href="freelancers.html">Freelancers</a></li>
+                <li><a href="companies.html">Entreprises</a></li>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn login">Connexion</a>
+                <a href="register.html" class="btn register">Inscription</a>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="projects-header">
+        <h1>Découvrez les projets</h1>
+        <div class="search-filter">
+            <div class="search-bar">
+                <input type="text" id="project-search" placeholder="Rechercher des projets...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filters">
+                <select id="category-filter">
+                    <option value="">Toutes les catégories</option>
+                    <option value="web">Développement Web</option>
+                    <option value="mobile">Développement Mobile</option>
+                    <option value="design">Design</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="writing">Rédaction</option>
+                </select>
+                <select id="budget-filter">
+                    <option value="">Tous les budgets</option>
+                    <option value="low">  500€</option>
+                    <option value="medium">500€ - 2000€</option>
+                    <option value="high">2000€ - 5000€</option>
+                    <option value="very-high">> 5000€</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-container">
+        <div class="project-card">
+            <div class="project-header">
+                <h3>Développement d'un site e-commerce</h3>
+                <span class="budget">2500€ - 3500€</span>
+            </div>
+            <div class="company-info">
+                <img src="img/company1.jpg" alt="Logo entreprise">
+                <span>TechSolutions</span>
+            </div>
+            <div class="project-description">
+                <p>Nous recherchons un développeur web expérimenté pour créer un site e-commerce complet avec panier, paiement en ligne et gestion des stocks.</p>
+            </div>
+            <div class="project-details">
+                <div class="detail"><i class="fas fa-tag"></i> Développement Web</div>
+                <div class="detail"><i class="fas fa-clock"></i> 2-3 mois</div>
+                <div class="detail"><i class="fas fa-map-marker-alt"></i> À distance</div>
+            </div>
+            <div class="project-skills">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+            </div>
+            <a href="project-details.html?id=1" class="btn primary">Voir détails</a>
+        </div>
+
+        <!-- Répéter pour d'autres projets -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3>Conception d'une application mobile</h3>
+                <span class="budget">4000€ - 6000€</span>
+            </div>
+            <div class="company-info">
+                <img src="img/company2.jpg" alt="Logo entreprise">
+                <span>MobileInnovate</span>
+            </div>
+            <div class="project-description">
+                <p>Nous cherchons un développeur mobile pour créer une application de suivi de fitness pour iOS et Android avec synchronisation cloud.</p>
+            </div>
+            <div class="project-details">
+                <div class="detail"><i class="fas fa-tag"></i> Développement Mobile</div>
+                <div class="detail"><i class="fas fa-clock"></i> 3-4 mois</div>
+                <div class="detail"><i class="fas fa-map-marker-alt"></i> À distance</div>
+            </div>
+            <div class="project-skills">
+                <span>React Native</span>
+                <span>Firebase</span>
+                <span>API REST</span>
+                <span>UI/UX</span>
+            </div>
+            <a href="project-details.html?id=2" class="btn primary">Voir détails</a>
+        </div>
+    </section>
+
+    <div class="pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#"><i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FreelanceConnect</h3>
+                <p>La plateforme qui connecte les talents aux opportunités</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="freelancers.html">Freelancers</a></li>
+                    <li><a href="companies.html">Entreprises</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contactez-nous</h3>
+                <p>Email: youssef.hellal9@gmail.com </p>
+                <p>Téléphone: +216 25944717</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FreelanceConnect. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

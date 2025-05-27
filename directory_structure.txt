@@ -1,0 +1,17 @@
+/your-project-folder/
+├── index.html
+├── login.php
+├── register.php
+├── dashboard.php
+├── test.php
+├── create_user_tables.php
+├── css/
+│   ├── style.css
+│   ├── auth.css
+│   └── dashboard.css
+└── php/
+    ├── config.php
+    ├── login_process.php
+    ├── register_process.php
+    └── check_file_structure.php
+

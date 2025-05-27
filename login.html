@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - FreelanceConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <style>
+        .error-messages {
+            background-color: #ffebee;
+            border: 1px solid #f44336;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .error-messages ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .error-messages li {
+            color: #d32f2f;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><a href="index.html">FreelanceConnect</a></h1>
+            </div>
+        </nav>
+    </header>
+
+    <section class="auth-container">
+        <div class="auth-form">
+            <h2>Connexion</h2>
+            
+            <div id="error-container" class="error-messages">
+                <ul id="error-list"></ul>
+            </div>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group remember">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Se souvenir de moi</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn primary full-width">Se connecter</button>
+                </div>
+                <div class="form-links">
+                    <a href="#">Mot de passe oublié?</a>
+                    <a href="register.html">Pas encore inscrit? Créer un compte</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2023 FreelanceConnect. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            const errorContainer = document.getElementById('error-container');
+            const errorList = document.getElementById('error-list');
+            
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Clear previous errors
+                errorList.innerHTML = '';
+                errorContainer.style.display = 'none';
+                
+                // Get form data
+                const formData = new FormData(loginForm);
+                
+                // Send AJAX request
+                fetch('php/login_process.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Store authentication data in localStorage
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('userId', data.userId);
+                        localStorage.setItem('userName', data.userName);
+                        localStorage.setItem('userType', data.userType);
+                        
+                        // Redirect to dashboard or requested page
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const redirectPage = urlParams.get('redirect');
+                        window.location.href = redirectPage ? redirectPage : data.redirect;
+                    } else {
+                        // Display errors
+                        data.errors.forEach(error => {
+                            const li = document.createElement('li');
+                            li.textContent = error;
+                            errorList.appendChild(li);
+                        });
+                        errorContainer.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('Login error:', error);
+                    const li = document.createElement('li');
+                    li.textContent = 'Une erreur est survenue lors de la connexion. Veuillez réessayer.';
+                    errorList.appendChild(li);
+                    errorContainer.style.display = 'block';
+                });
+            });
+        });
+    </script>
+    <script src="js/auth-manager.js"></script>
+</body>
+</html>
+

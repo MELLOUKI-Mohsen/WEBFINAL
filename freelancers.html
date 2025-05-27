@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancers - FreelanceConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/freelancers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>FreelanceConnect</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="freelancers.html" class="active">Freelancers</a></li>
+                <li><a href="companies.html">Entreprises</a></li>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn login">Connexion</a>
+                <a href="register.html" class="btn register">Inscription</a>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="freelancers-header">
+        <h1>Découvrez les freelancers</h1>
+        <div class="search-filter">
+            <div class="search-bar">
+                <input type="text" id="freelancer-search" placeholder="Rechercher des freelancers...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filters">
+                <select id="skill-filter">
+                    <option value="">Toutes les compétences</option>
+                    <option value="web">Développement Web</option>
+                    <option value="mobile">Développement Mobile</option>
+                    <option value="design">Design</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="writing">Rédaction</option>
+                </select>
+                <select id="experience-filter">
+                    <option value="">Toutes les expériences</option>
+                    <option value="junior">Débutant (0-2 ans)</option>
+                    <option value="intermediate">Intermédiaire (3-5 ans)</option>
+                    <option value="senior">Expérimenté (6+ ans)</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="freelancers-container">
+        <div class="freelancer-card">
+            <div class="freelancer-header">
+                <img src="img/freelancer1.jpg" alt="Photo de profil">
+                <div class="freelancer-info">
+                    <h3>Youssef Hellal</h3>
+                    <p>Développeur Web Full-Stack</p>
+                </div>
+            </div>
+            <div class="freelancer-description">
+                <p>Développeur passionné avec 5 ans d'expérience dans la création de sites web et d'applications web modernes et performantes.</p>
+            </div>
+            <div class="freelancer-skills">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>Node.js</span>
+            </div>
+            <div class="freelancer-details">
+                <div class="detail"><i class="fas fa-star"></i> 4.9/5 (25 avis)</div>
+                <div class="detail"><i class="fas fa-briefcase"></i> 42 projets</div>
+                <div class="detail"><i class="fas fa-clock"></i> 5 ans d'expérience</div>
+            </div>
+            <a href="freelancer-profile.html?id=1" class="btn primary">Voir profil</a>
+        </div>
+
+        <div class="freelancer-card">
+            <div class="freelancer-header">
+                <img src="img/freelancer2.jpg" alt="Photo de profil">
+                <div class="freelancer-info">
+                    <h3>Sophie Martin</h3>
+                    <p>Designer UX/UI</p>
+                </div>
+            </div>
+            <div class="freelancer-description">
+                <p>Designer créative spécialisée dans la conception d'interfaces utilisateur intuitives et esthétiques pour applications web et mobile.</p>
+            </div>
+            <div class="freelancer-skills">
+                <span>Figma</span>
+                <span>Adobe XD</span>
+                <span>Sketch</span>
+                <span>Photoshop</span>
+                <span>Prototypage</span>
+            </div>
+            <div class="freelancer-details">
+                <div class="detail"><i class="fas fa-star"></i> 4.8/5 (18 avis)</div>
+                <div class="detail"><i class="fas fa-briefcase"></i> 35 projets</div>
+                <div class="detail"><i class="fas fa-clock"></i> 4 ans d'expérience</div>
+            </div>
+            <a href="freelancer-profile.html?id=2" class="btn primary">Voir profil</a>
+        </div>
+
+        <!-- Ajouter plus de cartes de freelancers ici -->
+    </section>
+
+    <div class="pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#"><i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FreelanceConnect</h3>
+                <p>La plateforme qui connecte les talents aux opportunités</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="freelancers.html">Freelancers</a></li>
+                    <li><a href="companies.html">Entreprises</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contactez-nous</h3>
+                <p>Email: youssef.hellal9@gmail.com </p>
+                <p>Téléphone: +216 25944717</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FreelanceConnect. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
